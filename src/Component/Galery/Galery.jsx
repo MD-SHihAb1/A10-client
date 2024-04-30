@@ -53,7 +53,7 @@ const Galery = () => {
                 <div data-aos="fade-left">
                 <div className='w-1/3 mx-[60%]'>
                     <div>
-                    <img src="https://i.ibb.co/nnV0z4r/1ef80945440175-5607a2a1b2658.jpg" alt="" />
+                    <img src="https://i.ibb.co/P55bPxX/360-F-582156555-hbyp1b5f45x-Gt-Op2-PPDng-IOX4-YKv7t-ZF.jpg" alt="" />
                     </div>
                 </div>
                 </div>
@@ -66,7 +66,7 @@ const Galery = () => {
                 <div  data-aos="fade-right">
                 <div className='w-1/3 mx-40'>
                         <div>
-                        <img src="https://i.ibb.co/nnV0z4r/1ef80945440175-5607a2a1b2658.jpg" alt="" />
+                        <img src="https://i.ibb.co/bJ6ND1J/H1039-L04167867.jpg" alt="" />
                         </div>
                     </div>
                 </div>
@@ -78,7 +78,7 @@ const Galery = () => {
                 <div data-aos="fade-left">
                 <div className='w-1/3 mx-[60%]'>
                     <div>
-                    <img src="https://i.ibb.co/nnV0z4r/1ef80945440175-5607a2a1b2658.jpg" alt="" />
+                    <img src="https://i.ibb.co/xF3XMW5/largeschumann2.jpg" alt="" />
                     </div>
                 </div>
                 </div>
@@ -91,7 +91,7 @@ const Galery = () => {
                 <div  data-aos="fade-right">
                 <div className='w-1/3 mx-40'>
                         <div>
-                        <img src="https://i.ibb.co/nnV0z4r/1ef80945440175-5607a2a1b2658.jpg" alt="" />
+                        <img src="https://i.ibb.co/FXrVf8f/1ef80945440175-5607a2a1b2658-1.jpg" alt="" />
                         </div>
                     </div>
                 </div>
@@ -103,7 +103,7 @@ const Galery = () => {
                 <div data-aos="fade-left">
                 <div className='w-1/3 mx-[60%]'>
                     <div>
-                    <img src="https://i.ibb.co/nnV0z4r/1ef80945440175-5607a2a1b2658.jpg" alt="" />
+                    <img src="https://i.ibb.co/cJJm4HV/3-a116c2ad-b3cd-4d23-a8e3-9c068b20484a.jpg" alt="" />
                     </div>
                 </div>
                 </div>

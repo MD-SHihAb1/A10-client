@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { AuthContext } from "../Providers/AuthProvider";
 
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 
@@ -27,7 +27,9 @@ const Login = () => {
         signInUser(email, password)
         .then( result =>{
             console.log(result.user)
+            e.target.reset();
 
+            
             Swal.fire({
                 title: 'Login Successfully!',
                 icon: 'success',
@@ -73,6 +75,7 @@ const Login = () => {
         signWithGithub()
         .then(result =>{
             console.log(result.user)
+            
             toast.success('Login Successfully')
             navigate('/');
         })
@@ -96,7 +99,7 @@ const Login = () => {
                             <h5 className="text-xl font-medium text-gray-900 dark:text-white">Sign in to our platform</h5>
                             <div>
                                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-                                <input type="email" name="email"  className="input input-bordered flex items-center gap-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com" required />
+                                <input type="email" name="email"  className="input input-bordered flex items-center gap-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Email" required />
                             </div>
                         
                                     <div>
@@ -142,7 +145,9 @@ const Login = () => {
                                                 </div>
                             <br />
                                 <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
-                                    Not registered? <a href="#" className="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
+                                    Not registered? <Link to="/rg">
+                                    <a href="#" className="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
+                                    </Link>
                                 </div>
                         </form>
                     </div>

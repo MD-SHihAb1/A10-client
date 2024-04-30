@@ -86,7 +86,7 @@ const Mpainting = ({painting}) => {
                     <div className="card-actions justify-end">
                     <button
                     onClick={() =>handleDelete(_id)}
-                    className="btn btn-primary">View Details</button>
+                    className="btn btn-primary">Delete</button>
                     </div>
                     <div className="card-actions justify-start">
                    <Link to={`/myPainting/updatePainting/${_id}`}>

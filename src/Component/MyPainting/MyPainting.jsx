@@ -8,7 +8,7 @@ const MyPainting = () => {
     return (
         <div>
                     <div>
-            <h1>Painting: {paintings.length}</h1>
+            <h1 className="text-4xl text-center my-28">My Painting</h1>
 
           <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-8">
           {

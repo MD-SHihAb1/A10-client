@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { AuthContext } from "../Providers/AuthProvider";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
 
 
@@ -133,7 +133,9 @@ const Registration = () => {
                         <br />
 
                             <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
-                                Already Have An Account? <a href="#" className="text-blue-700 hover:underline dark:text-blue-500">Login</a>
+                                Already Have An Account? <Link to="/login">
+                                <a href="#" className="text-blue-700 hover:underline dark:text-blue-500">Login</a>
+                                </Link>
                             </div>
                         
                         </form>

@@ -7,6 +7,7 @@ const UpdatePainting = () => {
     const painting = useLoaderData();
 
     const {
+        _id,
         photo,
         name,
         subcategory_Name,
@@ -22,10 +23,10 @@ const UpdatePainting = () => {
 
 
 
-      const handleAddPainting = (event) => {
+      const handleUpdatePainting = (event) => {
         event.preventDefault();
     
-        console.log('Use Auth',user)
+        console.log('Use Auth',)
     
         const form = event.target;
         const formData = new FormData(form);
@@ -48,7 +49,7 @@ const UpdatePainting = () => {
       
        
       
-          const newPainting = {
+          const updatedPainting = {
             photo,
             name,
             subcategory_Name,
@@ -63,27 +64,27 @@ const UpdatePainting = () => {
             
           };
       
-          console.log(newPainting);
+          console.log(updatedPainting);
     
     
     
     
           // send data to server
     
-          fetch('http://localhost:5001/painting', {
-            method: 'POST',
+          fetch(`http://localhost:5001/painting/${_id}`, {
+            method: 'PUT',
             headers: {
               'content-type': 'application/json'
             },
-            body: JSON.stringify(newPainting)
+            body: JSON.stringify(updatedPainting)
           })
           .then(res => res.json())
           .then(data => {
             console.log(data);
-            if(data.insertedId){
+            if(data.modifiedCount> 0){
               Swal.fire({
                 title: 'Success!',
-                text: 'Painting Added Successfully',
+                text: 'Painting Updated Successfully',
                 icon: 'success',
                 confirmButtonText: 'OK'
               })
@@ -107,13 +108,14 @@ const UpdatePainting = () => {
                     <div className="w-full max-w-lg p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 mx-auto my-20">
                     <h1 className="text-center text-2xl">Update Painting: {name}</h1>
             
-                    <form onSubmit={handleAddPainting} className="max-w-md mx-auto my-20">
+                    <form onSubmit={handleUpdatePainting} className="max-w-md mx-auto my-20">
                         <div className="relative z-0 w-full mb-5 group">
                         <input
                             type="text"
                             name="photo"
                             required
                             placeholder=""
+                            defaultValue={photo}
                             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                         />
                         <label
@@ -129,6 +131,7 @@ const UpdatePainting = () => {
                             name="name"
                             required
                             placeholder=""
+                            defaultValue={name}
                             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                         />
                         <label
@@ -145,6 +148,7 @@ const UpdatePainting = () => {
                             name="subcategory_Name"
                             required
                             placeholder=""
+                            defaultValue={subcategory_Name}
                             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                         />
                         <label
@@ -161,6 +165,7 @@ const UpdatePainting = () => {
                             name="short_description"
                             required
                             placeholder=""
+                            defaultValue={short_description}
                             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                         />
                         <label
@@ -176,7 +181,8 @@ const UpdatePainting = () => {
                             type="number"
                             name="price"
                             required
-                            placeholder="Enter price"
+                            placeholder=""
+                            defaultValue={price}
                             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                         />
                         <label
@@ -193,6 +199,7 @@ const UpdatePainting = () => {
                             name="rating"
                             required
                             placeholder=""
+                            defaultValue={rating}
                             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                         />
                         <label
@@ -208,7 +215,7 @@ const UpdatePainting = () => {
                             <h1 className="my-3">Customization</h1>
                         </div>
                         <div>
-                            <select name="customization" className="select w-full max-w-xs">
+                            <select defaultValue={customization} name="customization" className="select w-full max-w-xs">
                             <option>Yes</option>
                             <option>No</option>
                             </select>
@@ -221,6 +228,7 @@ const UpdatePainting = () => {
                             name="processing_time"
                             required
                             placeholder=""
+                            defaultValue={processing_time}
                             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                         />
                         <label
@@ -236,7 +244,7 @@ const UpdatePainting = () => {
                             <h1 className="my-3">Stock </h1>
                         </div>
                         <div>
-                            <select name="stock" className="select w-full max-w-xs">
+                            <select defaultValue={stock} name="stock" className="select w-full max-w-xs">
                             <option>In stock</option>
                             <option>Made to Order</option>
                             </select>
@@ -249,6 +257,7 @@ const UpdatePainting = () => {
                             name="user_Name"
                             required
                             placeholder=""
+                            defaultValue={user_Name}
                             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                         />
                         <label
@@ -265,6 +274,7 @@ const UpdatePainting = () => {
                             name="email"
                             required
                             placeholder=""
+                            defaultValue={email}
                             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                         />
                         <label
@@ -279,7 +289,7 @@ const UpdatePainting = () => {
                         type="submit"
                         className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                         >
-                        Add Painting
+                        Update Painting
                         </button>
                         <br />
                     </form>
